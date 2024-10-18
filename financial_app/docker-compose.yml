@@ -4,8 +4,8 @@ services:
     image: postgres
     environment:
       POSTGRES_DB: financial_db
-      POSTGRES_USER: your_user
-      POSTGRES_PASSWORD: your_password
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Coolboy455!!
     ports:
       - "5432:5432"
 
