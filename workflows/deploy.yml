@@ -21,8 +21,8 @@ jobs:
 
     - name: Build and push Docker image
       run: |
-        docker build -t yourusername/django-app:${{ github.sha }} .
-        docker push yourusername/django-app:${{ github.sha }}
+        docker build -t jevonwil124/django-app:${{ github.sha }} .
+        docker push jevonwil124/django-app:${{ github.sha }}
 
   deploy:
     needs: build
@@ -36,7 +36,7 @@ jobs:
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_KEY }}
         script: |
-          docker pull yourusername/django-app:${{ github.sha }}
+          docker pull jevonwil124/django-app:${{ github.sha }}
           docker stop django-app || true
           docker rm django-app || true
-          docker run -d -p 80:8000 --name django-app yourusername/django-app:${{ github.sha }}
+          docker run -d -p 80:8000 --name django-app jevonwil124/django-app:${{ github.sha }}
