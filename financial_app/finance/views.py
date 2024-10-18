@@ -7,6 +7,12 @@ from io import BytesIO
 from django.http import HttpResponse
 from .models import StockData  # Import your model to fetch data
 
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Welcome to the Financial App!")
+
+
 def backtest_view(request):
     symbol = request.GET.get('symbol', 'AAPL')
     initial_investment = float(request.GET.get('investment', 10000))

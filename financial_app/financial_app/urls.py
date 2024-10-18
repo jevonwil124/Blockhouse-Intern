@@ -17,8 +17,12 @@ Including another URLconf
 # finance/urls.py
 from django.urls import path
 from finance import views
+from django.urls import path
+from .views import home
 
 urlpatterns = [
-    path('backtest/', views.backtest_view),
+    path('', home, name='home'),  # Add this line for the home page
+    path('backtest/', views.backtest_view), # existing pattern
 ]
+
 
